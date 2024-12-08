@@ -1,0 +1,21 @@
+The CSS specificity rules can sometimes lead to unexpected results.  For example, consider this scenario:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+#unique {
+  color: green;
+}
+
+#unique.special {
+  color: purple; /* This is the problem */
+}
+```
+
+The element with the ID `unique` and class `special` will be colored purple. The issue is that while `#unique.special` seems more specific than `.special` and `div`, if there were more complex selectors, it might be difficult to determine the correct order of specificity, resulting in unexpected styling.  This is particularly true when dealing with nested selectors and inheritance.
